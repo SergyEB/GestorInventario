@@ -4,7 +4,7 @@
  */
 package vista;
 
-import java.awt.Color;
+import controlador.ControladorRegistro;
 
 /**
  *
@@ -17,6 +17,7 @@ public class LogIn extends javax.swing.JFrame {
      */
     public LogIn() {
         initComponents();
+
     }
 
     /**
@@ -261,9 +262,8 @@ public class LogIn extends javax.swing.JFrame {
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         // TODO add your handling code here:
-        
-        
-        
+
+
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
@@ -271,23 +271,22 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCorreoActionPerformed
 
     private void btnRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarUsuarioActionPerformed
-        
-        SignUp signUp = new SignUp();
-        
-        signUp.setVisible(true);
-        
-        this.setVisible(false);
-        
+
+        SignUp signUp = new SignUp(); // Crear la instancia de SignUp
+        new ControladorRegistro(signUp); // Vincularla con el controlador
+        signUp.setVisible(true); // Mostrar la ventana
+        this.setVisible(false); // Ocultar la ventana actual
+
     }//GEN-LAST:event_btnRegistrarUsuarioActionPerformed
 
     private void btnOlvidoContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOlvidoContraseñaActionPerformed
-        
+
         RestorePassword restorePassword = new RestorePassword();
-        
+
         restorePassword.setVisible(true);
-        
+
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_btnOlvidoContraseñaActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed

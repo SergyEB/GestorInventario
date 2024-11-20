@@ -45,12 +45,14 @@ vista\Inventario$3.class
 vista\Eliminar$2.class
 vista\Dashboard$8.class
 vista\Inventario$6.class
+modelo\Usuario.class
 vista\Agregar$2.class
 vista\Eliminar$6.class
 vista\LogIn$9.class
 vista\SignUp$4.class
 vista\Editar.class
 vista\Agregar.class
+modelo\UsuarioDAO.class
 vista\Editar$4.class
 vista\Dashboard$5.class
 vista\Venta$2.class
@@ -63,6 +65,7 @@ vista\Usuario$3.class
 vista\Facturas$4.class
 vista\LogIn$5.class
 vista\Dashboard$4.class
+controlador\ControladorRegistro.class
 vista\SignUp$8.class
 vista\Editar$1.class
 vista\Administrador$4.class
@@ -76,7 +79,6 @@ vista\Agregar$3.class
 vista\Administrador$3.class
 vista\Facturas$3.class
 vista\Editar$3.class
-modelo\prueba.class
 vista\LogIn$8.class
 vista\Usuario$4.class
 vista\SignUp$1.class
@@ -86,7 +88,6 @@ vista\RestorePassword$2.class
 vista\Eliminar$4.class
 vista\Inventario$1.class
 vista\LogIn$1.class
-vista\SignUp$10.class
 vista\RestorePassword.class
 vista\Dashboard.class
 vista\SignUp$7.class

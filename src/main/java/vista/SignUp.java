@@ -4,8 +4,9 @@
  */
 package vista;
 
-import java.awt.Color;
-import java.awt.event.ActionEvent;
+import controlador.ControladorRegistro;
+
+
 
 /**
  *
@@ -43,7 +44,7 @@ public class SignUp extends javax.swing.JFrame {
         btnAceptar = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        txtCorreo2 = new javax.swing.JTextField();
+        txtNombreCompleto = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtContraseña1 = new javax.swing.JPasswordField();
 
@@ -176,11 +177,11 @@ public class SignUp extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Nombre completo");
 
-        txtCorreo2.setBackground(new java.awt.Color(255, 255, 255));
-        txtCorreo2.setText("nombre@ejemplo.com");
-        txtCorreo2.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreCompleto.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombreCompleto.setText("nombre apellido apellido");
+        txtNombreCompleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreo2ActionPerformed(evt);
+                txtNombreCompletoActionPerformed(evt);
             }
         });
 
@@ -206,7 +207,7 @@ public class SignUp extends javax.swing.JFrame {
                             .addComponent(txtCorreoUsuario)
                             .addComponent(txtContraseña)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCorreo2)
+                            .addComponent(txtNombreCompleto)
                             .addGroup(FondoLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -232,7 +233,7 @@ public class SignUp extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCorreo2, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addComponent(txtNombreCompleto, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -274,12 +275,12 @@ public class SignUp extends javax.swing.JFrame {
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         // TODO add your handling code here:
-       LogIn logIn = new LogIn();
-       
-       logIn.setVisible(true);
-        
-       this.setVisible(false);
-        
+        LogIn logIn = new LogIn();
+
+        logIn.setVisible(true);
+
+        this.setVisible(false);
+
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
@@ -291,7 +292,7 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarUsuarioActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        
+
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
@@ -308,88 +309,24 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreo1ActionPerformed
 
-    private void txtCorreo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreo2ActionPerformed
+    private void txtNombreCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCompletoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreo2ActionPerformed
-   private void txtCorreoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    }//GEN-LAST:event_txtNombreCompletoActionPerformed
+    private void txtCorreoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    } 
+    }
     private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContraseñaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SignUp().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Fondo;
-    private javax.swing.JButton btnAceptar;
-    private javax.swing.JButton btnCerrar;
-    private javax.swing.JButton btnIniciarSesion;
-    private javax.swing.JButton btnRegistrarUsuario;
+    public javax.swing.JButton btnAceptar;
+    public javax.swing.JButton btnCerrar;
+    public javax.swing.JButton btnIniciarSesion;
+    public javax.swing.JButton btnRegistrarUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -398,9 +335,9 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField txtContraseña;
-    private javax.swing.JPasswordField txtContraseña1;
-    private javax.swing.JTextField txtCorreo2;
-    private javax.swing.JTextField txtCorreoUsuario;
+    public javax.swing.JPasswordField txtContraseña;
+    public javax.swing.JPasswordField txtContraseña1;
+    public javax.swing.JTextField txtCorreoUsuario;
+    public javax.swing.JTextField txtNombreCompleto;
     // End of variables declaration//GEN-END:variables
 }

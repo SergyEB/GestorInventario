@@ -1,5 +1,5 @@
-D:\SERGIO\Documents\NetBeansProjects\GestorInventario\src\main\java\modelo\prueba.java
 D:\SERGIO\Documents\NetBeansProjects\GestorInventario\src\main\java\vista\Venta.java
+D:\SERGIO\Documents\NetBeansProjects\GestorInventario\src\main\java\modelo\Usuario.java
 D:\SERGIO\Documents\NetBeansProjects\GestorInventario\src\main\java\vista\Agregar.java
 D:\SERGIO\Documents\NetBeansProjects\GestorInventario\src\main\java\vista\RestorePassword.java
 D:\SERGIO\Documents\NetBeansProjects\GestorInventario\src\main\java\modelo\Conexion.java
@@ -8,7 +8,9 @@ D:\SERGIO\Documents\NetBeansProjects\GestorInventario\src\main\java\vista\LogIn.
 D:\SERGIO\Documents\NetBeansProjects\GestorInventario\src\main\java\vista\SignUp.java
 D:\SERGIO\Documents\NetBeansProjects\GestorInventario\src\main\java\vista\Administrador.java
 D:\SERGIO\Documents\NetBeansProjects\GestorInventario\src\main\java\vista\Dashboard.java
+D:\SERGIO\Documents\NetBeansProjects\GestorInventario\src\main\java\controlador\ControladorRegistro.java
 D:\SERGIO\Documents\NetBeansProjects\GestorInventario\src\main\java\vista\Editar.java
 D:\SERGIO\Documents\NetBeansProjects\GestorInventario\src\main\java\vista\Facturas.java
+D:\SERGIO\Documents\NetBeansProjects\GestorInventario\src\main\java\modelo\UsuarioDAO.java
 D:\SERGIO\Documents\NetBeansProjects\GestorInventario\src\main\java\vista\Eliminar.java
 D:\SERGIO\Documents\NetBeansProjects\GestorInventario\src\main\java\vista\Usuario.java
