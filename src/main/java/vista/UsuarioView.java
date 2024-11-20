@@ -12,12 +12,12 @@ import javax.swing.table.JTableHeader;
  *
  * @author sergi
  */
-public class Usuario extends javax.swing.JPanel {
+public class UsuarioView extends javax.swing.JPanel {
 
     /**
      * Creates new form Venta
      */
-    public Usuario() {
+    public UsuarioView() {
         initComponents();
         
     }

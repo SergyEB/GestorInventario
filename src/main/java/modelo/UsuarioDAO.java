@@ -33,7 +33,7 @@ public class UsuarioDAO {
             ps.setString(5, u.getContraseña());
             ps.setString(6, u.getRolUsuario());
             ps.executeUpdate();
-            System.out.println("hola jeje");
+
             return 1; // Devuelve 1 si la inserción fue exitosa
         } catch (Exception e) {
             System.out.println("Error al agregar usuario: " + e.getMessage()); // Opcional: imprime el error para depuración
@@ -69,6 +69,75 @@ public class UsuarioDAO {
             }
         }
         return claves;
+    }
+
+    public Usuario validarCredenciales(String correo, String contraseña) {
+        Usuario usuario = null;
+        String sql = "SELECT * FROM Usuarios WHERE correo = ? AND contraseña = ?";
+        try {
+            con = conectar.obtenerConexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, correo);
+            ps.setString(2, contraseña);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                usuario = new Usuario();
+                usuario.setIdUsuario(rs.getInt("ID_Usuario"));
+                usuario.setNombre(rs.getString("nombre"));
+                usuario.setApellido1(rs.getString("apellido1"));
+                usuario.setApellido2(rs.getString("apellido2"));
+                usuario.setCorreo(rs.getString("correo"));
+                usuario.setRolUsuario(rs.getString("rolUsuario"));
+            }
+        } catch (Exception e) {
+            System.out.println("Error al validar credenciales: " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error al cerrar conexiones: " + e.getMessage());
+            }
+        }
+        return usuario;
+    }
+
+    public boolean correoExiste(String correo) {
+        String sql = "SELECT 1 FROM Usuarios WHERE correo = ?";
+        boolean existe = false;
+
+        try (Connection con = conectar.obtenerConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, correo);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return true; // Retorno inmediato si el correo existe
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace(); // O puedes usar un Logger aquí
+        }
+
+        return existe; // Retorna false si no se encontró el correo
+    }
+
+    public boolean actualizarContraseña(String correo, String nuevaContraseña) {
+        String sql = "UPDATE Usuarios SET contraseña = ? WHERE correo = ?";
+        try (Connection con = conectar.obtenerConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, nuevaContraseña);
+            ps.setString(2, correo);
+            return ps.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 }

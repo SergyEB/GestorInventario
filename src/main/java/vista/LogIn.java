@@ -4,7 +4,9 @@
  */
 package vista;
 
+import controlador.ControladorLogIn;
 import controlador.ControladorRegistro;
+import controlador.ControladorRestorePassword;
 
 /**
  *
@@ -17,7 +19,7 @@ public class LogIn extends javax.swing.JFrame {
      */
     public LogIn() {
         initComponents();
-
+        new ControladorLogIn(this);
     }
 
     /**
@@ -282,6 +284,8 @@ public class LogIn extends javax.swing.JFrame {
     private void btnOlvidoContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOlvidoContraseñaActionPerformed
 
         RestorePassword restorePassword = new RestorePassword();
+        
+        new ControladorRestorePassword(restorePassword);
 
         restorePassword.setVisible(true);
 
@@ -335,24 +339,25 @@ public class LogIn extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LogIn().setVisible(true);
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Fondo;
-    private javax.swing.JButton btnAceptar;
-    private javax.swing.JButton btnCerrar;
-    private javax.swing.JButton btnIniciarSesion;
-    private javax.swing.JButton btnOlvidoContraseña;
-    private javax.swing.JButton btnRegistrarUsuario;
+    public javax.swing.JButton btnAceptar;
+    public javax.swing.JButton btnCerrar;
+    public javax.swing.JButton btnIniciarSesion;
+    public javax.swing.JButton btnOlvidoContraseña;
+    public javax.swing.JButton btnRegistrarUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField txtContraseña;
-    private javax.swing.JTextField txtCorreo;
+    public javax.swing.JPasswordField txtContraseña;
+    public javax.swing.JTextField txtCorreo;
     // End of variables declaration//GEN-END:variables
 }

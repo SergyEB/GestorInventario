@@ -62,6 +62,12 @@ public class ControladorRegistro implements ActionListener {
             return;
         }
 
+        // Validar si el correo ya existe en la base de datos
+        if (dao.correoExiste(correo)) {
+            JOptionPane.showMessageDialog(signUp, "El correo ingresado ya está registrado. Por favor, utilice uno diferente.");
+            return;
+        }
+
         if (contraseña.length() < 6 || contraseña.length() > 10) {
             JOptionPane.showMessageDialog(signUp, "La contraseña debe tener entre 6 y 10 caracteres.");
             return;
@@ -91,9 +97,17 @@ public class ControladorRegistro implements ActionListener {
 
         if (r == 1) {
             JOptionPane.showMessageDialog(signUp, "Usuario agregado con éxito.");
+            limpiarCampos(); // Limpiar campos tras agregar el usuario
         } else {
             JOptionPane.showMessageDialog(signUp, "Error al agregar el usuario.");
         }
+    }
+    
+    private void limpiarCampos() {
+        signUp.txtNombreCompleto.setText("");
+        signUp.txtCorreoUsuario.setText("");
+        signUp.txtContraseña.setText("");
+        signUp.txtContraseña1.setText("");
     }
 
 }
