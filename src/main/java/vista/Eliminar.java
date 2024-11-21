@@ -42,7 +42,7 @@ public class Eliminar extends javax.swing.JPanel {
         tblProductos = new javax.swing.JTable();
         btnSeleccionar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        btnModificar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -54,7 +54,7 @@ public class Eliminar extends javax.swing.JPanel {
         txtPrecioAEliminar = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtaDescripcionAEliminar = new javax.swing.JTextArea();
-        txtVencimientoAEliminar = new javax.swing.JTextField();
+        dateChooserAEliminar = new com.toedter.calendar.JDateChooser();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -90,6 +90,7 @@ public class Eliminar extends javax.swing.JPanel {
             }
         });
 
+        cbxCategoria.setEnabled(false);
         cbxCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxCategoriaActionPerformed(evt);
@@ -141,17 +142,17 @@ public class Eliminar extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Eliminar un producto");
 
-        btnModificar.setBackground(new java.awt.Color(24, 102, 104));
-        btnModificar.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
-        btnModificar.setText("Eliminar");
-        btnModificar.setMaximumSize(new java.awt.Dimension(55, 24));
-        btnModificar.setMinimumSize(new java.awt.Dimension(55, 24));
-        btnModificar.setName(""); // NOI18N
-        btnModificar.setPreferredSize(new java.awt.Dimension(55, 24));
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.setBackground(new java.awt.Color(24, 102, 104));
+        btnEliminar.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setMaximumSize(new java.awt.Dimension(55, 24));
+        btnEliminar.setMinimumSize(new java.awt.Dimension(55, 24));
+        btnEliminar.setName(""); // NOI18N
+        btnEliminar.setPreferredSize(new java.awt.Dimension(55, 24));
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
             }
         });
 
@@ -179,6 +180,7 @@ public class Eliminar extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Cantidad en stock:");
 
+        txtNombreAEliminar.setEnabled(false);
         txtNombreAEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreAEliminarActionPerformed(evt);
@@ -186,6 +188,7 @@ public class Eliminar extends javax.swing.JPanel {
         });
         txtNombreAEliminar.setEditable(false);
 
+        txtCantidadAEliminar.setEnabled(false);
         txtCantidadAEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCantidadAEliminarActionPerformed(evt);
@@ -193,6 +196,7 @@ public class Eliminar extends javax.swing.JPanel {
         });
         txtCantidadAEliminar.setEditable(false);
 
+        txtPrecioAEliminar.setEnabled(false);
         txtPrecioAEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPrecioAEliminarActionPerformed(evt);
@@ -203,14 +207,10 @@ public class Eliminar extends javax.swing.JPanel {
         txtaDescripcionAEliminar.setEditable(false);
         txtaDescripcionAEliminar.setColumns(20);
         txtaDescripcionAEliminar.setRows(1);
+        txtaDescripcionAEliminar.setEnabled(false);
         jScrollPane3.setViewportView(txtaDescripcionAEliminar);
 
-        txtVencimientoAEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtVencimientoAEliminarActionPerformed(evt);
-            }
-        });
-        txtVencimientoAEliminar.setEditable(false);
+        dateChooserAEliminar.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -249,10 +249,10 @@ public class Eliminar extends javax.swing.JPanel {
                             .addComponent(jLabel8))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtPrecioAEliminar)
                             .addComponent(txtCantidadAEliminar)
-                            .addComponent(txtVencimientoAEliminar))))
+                            .addComponent(dateChooserAEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(98, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -274,21 +274,22 @@ public class Eliminar extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txtNombreAEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel7)
-                                .addGap(68, 68, 68))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtVencimientoAEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(txtNombreAEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(50, 50, 50)
+                                        .addComponent(jLabel7)
+                                        .addGap(68, 68, 68))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(28, 28, 28)))
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(dateChooserAEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
@@ -299,7 +300,7 @@ public class Eliminar extends javax.swing.JPanel {
                             .addComponent(txtPrecioAEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(59, 59, 59))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -340,9 +341,9 @@ public class Eliminar extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnModificarActionPerformed
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtNombreAEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreAEliminarActionPerformed
     
@@ -358,16 +359,13 @@ public class Eliminar extends javax.swing.JPanel {
       txtPrecioAEliminar.setEditable(false);
     }//GEN-LAST:event_txtPrecioAEliminarActionPerformed
 
-    private void txtVencimientoAEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVencimientoAEliminarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtVencimientoAEliminarActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnSeleccionar;
-    private javax.swing.JComboBox<String> cbxCategoria;
+    public javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnSeleccionar;
+    public javax.swing.JComboBox<String> cbxCategoria;
+    public com.toedter.calendar.JDateChooser dateChooserAEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -382,12 +380,11 @@ public class Eliminar extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTable tblProductos;
-    private javax.swing.JTextField txtBuscar;
-    private javax.swing.JTextField txtCantidadAEliminar;
-    private javax.swing.JTextField txtNombreAEliminar;
-    private javax.swing.JTextField txtPrecioAEliminar;
-    private javax.swing.JTextField txtVencimientoAEliminar;
-    private javax.swing.JTextArea txtaDescripcionAEliminar;
+    public javax.swing.JTable tblProductos;
+    public javax.swing.JTextField txtBuscar;
+    public javax.swing.JTextField txtCantidadAEliminar;
+    public javax.swing.JTextField txtNombreAEliminar;
+    public javax.swing.JTextField txtPrecioAEliminar;
+    public javax.swing.JTextArea txtaDescripcionAEliminar;
     // End of variables declaration//GEN-END:variables
 }

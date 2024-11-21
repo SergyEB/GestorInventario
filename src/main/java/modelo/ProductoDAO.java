@@ -122,4 +122,182 @@ public class ProductoDAO {
         return -1; // Retorna -1 si no encuentra la categoría
     }
 
+    // Método para buscar productos por nombre
+    public List<Producto> buscarProductosPorNombre(String nombre) {
+        List<Producto> productos = new ArrayList<>();
+        String sql = "SELECT * FROM Productos WHERE nombre_producto LIKE ?";
+
+        try {
+            con = conectar.obtenerConexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, "%" + nombre + "%"); // Permite buscar productos que contengan el texto
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Producto producto = new Producto();
+                producto.setIdProducto(rs.getInt("ID_Producto"));
+                producto.setIdCategoria(rs.getInt("ID_Categoria"));
+                producto.setNombreProducto(rs.getString("nombre_producto"));
+                producto.setDescripcionProducto(rs.getString("descripciónProducto"));
+                producto.setCantidadProducto(rs.getInt("cantidadProducto"));
+                producto.setPrecio(rs.getDouble("precio"));
+                producto.setFechaVencimiento(rs.getDate("fechaVencimiento"));
+
+                productos.add(producto);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al buscar productos: " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error al cerrar conexiones: " + e.getMessage());
+            }
+        }
+
+        return productos;
+    }
+
+    public Producto obtenerProductoPorId(int idProducto) {
+        Producto producto = null; // Inicializamos el producto como null
+        String sql = "SELECT * FROM Productos WHERE ID_Producto = ?";
+
+        try {
+            con = conectar.obtenerConexion();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idProducto); // Asignamos el ID del producto al parámetro de la consulta
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                producto = new Producto();
+                producto.setIdProducto(rs.getInt("ID_Producto"));
+                producto.setIdCategoria(rs.getInt("ID_Categoria"));
+                producto.setNombreProducto(rs.getString("nombre_producto"));
+                producto.setDescripcionProducto(rs.getString("descripciónProducto"));
+                producto.setCantidadProducto(rs.getInt("cantidadProducto"));
+                producto.setPrecio(rs.getDouble("precio"));
+                producto.setFechaVencimiento(rs.getDate("fechaVencimiento")); // Convertimos la fecha
+            }
+        } catch (Exception e) {
+            System.out.println("Error al obtener producto por ID: " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error al cerrar conexiones: " + e.getMessage());
+            }
+        }
+
+        return producto;
+    }
+
+    public String obtenerNombreCategoria(int idCategoria) {
+        String sql = "SELECT nombreCategoria FROM Categorias WHERE ID_Categoria = ?";
+        String nombreCategoria = null;
+
+        try {
+            con = conectar.obtenerConexion();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idCategoria);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                nombreCategoria = rs.getString("nombreCategoria");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al obtener el nombre de la categoría: " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error al cerrar conexiones: " + e.getMessage());
+            }
+        }
+
+        return nombreCategoria;
+    }
+
+    public boolean actualizarProducto(Producto producto) {
+        String sql = "UPDATE Productos SET ID_Categoria = ?, nombre_producto = ?, descripciónProducto = ?, cantidadProducto = ?, precio = ?, fechaVencimiento = ? WHERE ID_Producto = ?";
+        try {
+            con = conectar.obtenerConexion();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, producto.getIdCategoria());
+            ps.setString(2, producto.getNombreProducto());
+            ps.setString(3, producto.getDescripcionProducto());
+            ps.setInt(4, producto.getCantidadProducto());
+            ps.setDouble(5, producto.getPrecio());
+            if (producto.getFechaVencimiento() != null) {
+                ps.setDate(6, new java.sql.Date(producto.getFechaVencimiento().getTime()));
+            } else {
+                ps.setNull(6, java.sql.Types.DATE);
+            }
+            ps.setInt(7, producto.getIdProducto());
+
+            return ps.executeUpdate() > 0; // Retorna true si se actualizó el producto
+        } catch (Exception e) {
+            System.out.println("Error al actualizar el producto: " + e.getMessage());
+            return false;
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error al cerrar conexiones: " + e.getMessage());
+            }
+        }
+        
+
+}
+
+public boolean eliminarProducto(int idProducto) {
+    String sql = "DELETE FROM Productos WHERE ID_Producto = ?";
+    try {
+        con = conectar.obtenerConexion();
+        ps = con.prepareStatement(sql);
+        ps.setInt(1, idProducto);
+
+        return ps.executeUpdate() > 0; // Retorna true si se elimina correctamente
+    } catch (Exception e) {
+        System.out.println("Error al eliminar producto: " + e.getMessage());
+        return false;
+    } finally {
+        try {
+            if (ps != null) ps.close();
+            if (con != null) con.close();
+        } catch (Exception e) {
+            System.out.println("Error al cerrar conexiones: " + e.getMessage());
+        }
+    }
+}
+ 
+    
 }

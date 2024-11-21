@@ -74,11 +74,13 @@ public class ControladorDashboard implements ActionListener {
 
     private void abrirEditarProducto() {
         Editar editar = new Editar();
+        ControladorEditarProducto cep = new ControladorEditarProducto(editar);
         setContenido(editar);
     }
 
     private void abrirEliminarProducto() {
         Eliminar eliminar = new Eliminar();
+        ControladorEliminarProducto cElip = new ControladorEliminarProducto(eliminar);
         setContenido(eliminar);
     }
 

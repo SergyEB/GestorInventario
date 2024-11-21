@@ -4,9 +4,6 @@
  */
 package vista;
 
-import java.awt.Color;
-import javax.swing.JScrollPane;
-import javax.swing.table.JTableHeader;
 
 /**
  *
@@ -314,11 +311,11 @@ public class Editar extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnSeleccionar;
-    private javax.swing.JComboBox<String> cbxCategoria;
-    private com.toedter.calendar.JDateChooser dateChooserAEditar;
+    public javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnSeleccionar;
+    public javax.swing.JComboBox<String> cbxCategoria;
+    public com.toedter.calendar.JDateChooser dateChooserAEditar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -333,11 +330,11 @@ public class Editar extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTable tblProductos;
-    private javax.swing.JTextField txtBuscar;
-    private javax.swing.JTextField txtCantidadAEditar;
-    private javax.swing.JTextField txtNombreAEditar;
-    private javax.swing.JTextField txtPrecioAEditar;
-    private javax.swing.JTextArea txtaDescripcionAEditar;
+    public javax.swing.JTable tblProductos;
+    public javax.swing.JTextField txtBuscar;
+    public javax.swing.JTextField txtCantidadAEditar;
+    public javax.swing.JTextField txtNombreAEditar;
+    public javax.swing.JTextField txtPrecioAEditar;
+    public javax.swing.JTextArea txtaDescripcionAEditar;
     // End of variables declaration//GEN-END:variables
 }

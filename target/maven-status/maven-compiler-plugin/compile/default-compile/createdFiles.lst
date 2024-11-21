@@ -7,10 +7,10 @@ vista\Dashboard$7.class
 vista\Editar$6.class
 vista\Agregar$4.class
 vista\LogIn$3.class
+controlador\ControladorEliminarProducto.class
 vista\Dashboard$2.class
 vista\Agregar$1.class
 vista\Administrador$1.class
-vista\Eliminar$10.class
 vista\Venta.class
 vista\Eliminar$5.class
 vista\SignUp$5.class
@@ -81,6 +81,7 @@ vista\Administrador$4.class
 vista\LogIn.class
 vista\LogIn$2.class
 vista\RestorePassword$3.class
+controlador\ControladorEditarProducto.class
 controlador\ControladorLogIn.class
 vista\Venta$1.class
 vista\Agregar$3.class
