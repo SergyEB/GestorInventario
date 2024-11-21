@@ -4,9 +4,7 @@
  */
 package vista;
 
-import java.awt.Color;
-import java.text.SimpleDateFormat;
-import javax.swing.table.JTableHeader;
+
 
 /**
  *
@@ -251,9 +249,9 @@ public class Agregar extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarProducto;
-    private javax.swing.JComboBox<String> cbxCategoriaProducto;
-    private com.toedter.calendar.JDateChooser dateChooserVencimiento;
+    public javax.swing.JButton btnAgregarProducto;
+    public javax.swing.JComboBox<String> cbxCategoriaProducto;
+    public com.toedter.calendar.JDateChooser dateChooserVencimiento;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -266,9 +264,9 @@ public class Agregar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField txtCantidadProducto;
-    private javax.swing.JTextField txtNombreProducto;
-    private javax.swing.JTextField txtPrecioProducto;
-    private javax.swing.JTextArea txtaDescripcionProducto;
+    public javax.swing.JTextField txtCantidadProducto;
+    public javax.swing.JTextField txtNombreProducto;
+    public javax.swing.JTextField txtPrecioProducto;
+    public javax.swing.JTextArea txtaDescripcionProducto;
     // End of variables declaration//GEN-END:variables
 }

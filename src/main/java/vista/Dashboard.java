@@ -6,6 +6,7 @@ package vista;
 
 import java.awt.BorderLayout;
 import java.time.LocalDate;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import modelo.Usuario;
 
@@ -21,9 +22,10 @@ public class Dashboard extends javax.swing.JFrame {
      * Creates new form Dashboard
      * @param u
      */
-    public Dashboard(Usuario u) {
+    public Dashboard(Usuario usuario) {
         initComponents();
         SetDate();
+        configurarAccesos(usuario);
     }
 
     /**
@@ -298,65 +300,32 @@ public class Dashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentaActionPerformed
-        Venta venta = new Venta();
-        setContenido(venta);
-
-
     }//GEN-LAST:event_btnVentaActionPerformed
 
     private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
 
-        Agregar agregar = new Agregar();
-        setContenido(agregar);
-
     }//GEN-LAST:event_btnAgregarProductoActionPerformed
 
     private void btnEditarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarProductoActionPerformed
-        Editar editar = new Editar();
-        setContenido(editar);
+
     }//GEN-LAST:event_btnEditarProductoActionPerformed
 
     private void btnEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProductoActionPerformed
-
-        Eliminar eliminar = new Eliminar();
-        setContenido(eliminar);
-
 
     }//GEN-LAST:event_btnEliminarProductoActionPerformed
 
     private void btnFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturasActionPerformed
 
-        Facturas facturas = new Facturas();
-        setContenido(facturas);
-
-
     }//GEN-LAST:event_btnFacturasActionPerformed
 
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
-
-        UsuarioView u = new UsuarioView();
-        setContenido(u);
-
-
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
     private void btnInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventarioActionPerformed
 
-        Inventario inventario = new Inventario();
-        setContenido(inventario);
-
-
     }//GEN-LAST:event_btnInventarioActionPerformed
 
-    public void setContenido(JPanel p) {
-        p.setSize(1045, 638);
-        p.setLocation(0, 0);
 
-        contenido.removeAll();
-        contenido.add(p, BorderLayout.CENTER);
-        contenido.revalidate();
-        contenido.repaint();
-    }
 
     private void SetDate() {
         LocalDate now = LocalDate.now();
@@ -369,19 +338,28 @@ public class Dashboard extends javax.swing.JFrame {
 
         fecha.setText("Hoy es " + dia + " de " + meses[month - 1] + " de " + year);
     }
+    
+    private void configurarAccesos(Usuario usuario) {
+        if ("Usuario".equalsIgnoreCase(usuario.getRolUsuario())) {
+            // Deshabilitar botones para el rol "Usuario"
+            btnAgregarProducto.setEnabled(false);
+            btnEditarProducto.setEnabled(false);
+            btnEliminarProducto.setEnabled(false);
+        }
+    }
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Fondo;
-    private javax.swing.JButton btnAgregarProducto;
-    private javax.swing.JButton btnEditarProducto;
-    private javax.swing.JButton btnEliminarProducto;
-    private javax.swing.JButton btnFacturas;
-    private javax.swing.JButton btnInventario;
-    private javax.swing.JButton btnUsuario;
-    private javax.swing.JButton btnVenta;
-    private javax.swing.JPanel contenido;
+    public javax.swing.JButton btnAgregarProducto;
+    public javax.swing.JButton btnEditarProducto;
+    public javax.swing.JButton btnEliminarProducto;
+    public javax.swing.JButton btnFacturas;
+    public javax.swing.JButton btnInventario;
+    public javax.swing.JButton btnUsuario;
+    public javax.swing.JButton btnVenta;
+    public javax.swing.JPanel contenido;
     private javax.swing.JLabel fecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -69,6 +69,7 @@ public class ControladorLogIn implements ActionListener {
         JOptionPane.showMessageDialog(logIn, "Accediendo al sistema como " + usuario.getRolUsuario());
         
         Dashboard dash = new Dashboard(usuario);
+        ControladorDashboard cd = new ControladorDashboard(dash);
         dash.setVisible(true);
         
         
